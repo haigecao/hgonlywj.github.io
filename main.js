@@ -20,7 +20,6 @@ require.config({//第一块，配置
 
 
 require(['avalon', "domReady!"], function() {//第二块，添加根VM（处理共用部分）
-    avalon.log("加载avalon完毕，开始构建根VM与加载其他模块")
     avalon.templateCache.empty = "&nbsp;"
     avalon.define({
         $id: "root",
