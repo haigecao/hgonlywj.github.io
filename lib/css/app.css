@@ -1,0 +1,86 @@
+body {
+    background: #e2eff7;
+    background:radial-gradient(circle, #f9fcff 20%, #e2eff7 50%, #b1d4e7 100%);
+}
+
+.nav {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%,-50%); 
+    background-color: #ddd;
+}
+
+.a-link {
+    height: 100%;
+    width: 100%;
+    /*background-color: blue;*/
+    /*opacity: 0.1;*/
+    margin-top: -40px;
+    margin-left: 40px;
+    display: block;
+    position: relative;
+}
+
+.nav-list-one {
+    position: absolute;
+    left:50%;
+    top: 20px; 
+    width: 300px;
+    height: 300px;
+    transform:translateX(-50%) rotate(-45deg);
+    background-color: #1496bf;
+}
+/*.nav-list-one p {
+    width: 300px;
+    height: 150px;
+}*/
+
+.nav-elem-lable {
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+    top:50%;
+    left:50%;
+    width: 300px;
+    height: 100px;
+    padding-top:75px; 
+    text-align: center;
+    transform:translate(-50%, -50%) rotate(45deg);
+}
+
+.nav-elem-ttile {
+    position: absolute;
+    transform:rotate(45deg);
+    width: 100%;
+    height: 100%;
+}
+
+.nav-elem-ttile-content {
+    position: relative;
+    color: #fff;
+    margin-top: 200px;
+    border:1px solid #fff;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.NavElemOne {
+/*    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);*/
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+
