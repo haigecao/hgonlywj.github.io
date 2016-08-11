@@ -1,19 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-     <title>HGonlyWJ</title>
+	<title>build tools</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style type="text/css" id='spa-base-style'>#search-card {display: none;}</style><style type="text/css" class="spa-index-style" data-lsid="plus_css_head">body,h1,h2,h3,p,div,ol,ul,input,button{margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;text-align:center;-webkit-text-size-adjust:none;overflow-x:hidden}ol,ul{list-style:none}a{text-decoration:none}input,button,textarea{border:0;border-radius:0;background:transparent;-webkit-appearance:none;-webkit-box-sizing:border-box;box-sizing:border-box}button{outline:0}@font-face{font-family:icons;src:url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.eot);src:url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.eot#iefix) format('embedded-opentype'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.woff) format('woff'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.ttf) format('truetype'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.svg?#iconfont) format('svg');font-weight:400;font-style:normal}#index-card [class^=icon-],#index-card [class*=" icon-"],#index-view [class^=icon-],#index-view [class*=" icon-"]{font-family:icons;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px}#index-card .normal-title>i{position:absolute;top:11px;left:-2px}#index-card .icon-add,#index-view .icon-add{font-size:24px;color:#B6B7BA}#index-view .icon-url,#index-view .icon-nav{color:#777}#index-card .icon-arrow:before{content:'\e612';color:#b6b7ba}#userinfo-wrap{position:relative;height:54px}#userinfo{display:block;position:absolute;right:6px;top:17px;max-width:6em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:5px 8px;font-size:14px;color:#262626}#login{position:absolute;top:3px;right:0;padding:7px;color:#B2B4BA;font-size:28px;line-height:20px}#header{padding-bottom:10px}#logo{height:55px;padding:17px 0 15px}#index-form{margin:0 10px;border:1px solid #8d9394;border-radius:1px;height:42px;-webkit-box-shadow:0 1px 1px 0 #dfdfdf;background:#fff}#index-form .con-wrap{display:-webkit-box}#index-card .se-input,#index-card .se-encode{display:block;-webkit-box-flex:1;margin:2px 0;padding:6px 35px 6px 6px;font-size:18px;line-height:24px;-webkit-tap-highlight-color:rgba(0,0,0,0)}#index-card .se-inner{width:79px;position:relative}#index-bn{position:absolute;top:0;right:0;width:79px;height:42px;background:#ececec;background:-webkit-linear-gradient(top,#f9f9f9,#e7e9eb);color:#46484b;-webkit-box-shadow:0 0 0 1px #fff inset;box-shadow:0 0 0 1px #fff inset;-webkit-text-shadow:0 1px 0 #fafafa;text-shadow:0 1px 0 #fafafa;white-space:nowrap;line-height:42px;border-left:1px solid #8d9394;letter-spacing:-1px;font-weight:700;font-size:16px}#foot{margin:20px 25px 0;background:#fff}#foot div a{display:inline-block;height:24px;width:47%;line-height:24px;border:1px solid #ececec;border-radius:1px;color:#555;font-size:13px}#foot div a:first-child{float:left}#foot div a:last-child{float:right}#index-copyright{display:block;font-size:10px;line-height:20px;padding:35px 0 13px;color:#aaa}#index-card{position:relative}#index-card .se-input{-webkit-border-radius:0;border-radius:0;margin:0;padding:7px 42px 7px 6px;height:42px;line-height:28px;resize:none;overflow:hidden;font-family:Arial,Helvetica,sans-serif}.input-hidden{position:absolute;left:6px;top:0;visibility:hidden}.adjust-input{position:relative;margin:0 -74px 0 0;line-height:29px;word-break:break-all;word-wrap:break-word}@charset "UTF-8";#navs:not(.expand) a:nth-child(n+7),[data-role=cache],[data-role=view],.plus-edit-foot,.plus-edit,.plus-edit-option,.refresh,#admin-bottom,.white-page #plus-card,.plus-empty{display:none}.navs-news:before{content:'\e672';color:#777;font:24px/1 icons}.navs-tieba:before{content:'\e670';color:#777;font:24px/1 icons}.navs-novel:before{content:'\e676';color:#777;font:24px/1 icons}.navs-video:before{content:'\e66f';color:#777;font:24px/1 icons}.navs-life:before{content:'\e730';color:#777;font:24px/1 icons}.navs-website:before{content:'\e675';color:#777;font:24px/1 icons}.navs-extend:before{content:'\e727';color:#777;font:24px/1 icons}.navs-more:before{content:'\e674';color:#777;font:24px/1 icons}.navs-map:before{content:'\e66c';color:#777;font:24px/1 icons}.navs-image:before{content:'\e66e';color:#777;font:24px/1 icons}.navs-app:before{content:'\e677';color:#777;font:24px/1 icons}.white-page,.white-page body{height:100%}#page,#index-card{height:inherit}#navs{margin:17px 0 14px;overflow:hidden}#navs a{float:left;width:16%;font-size:13px;color:#262626}#navs a i{display:block;margin-bottom:4px;height:24px}#navs a:first-child,#navs a:nth-child(7){margin-left:2%}#navs a:nth-child(6){margin-right:2%}#navs.expand .navs-more:before{content:'\e673'}#navs a:nth-child(n+7){margin-top:9px}#plus-card{position:relative;border:0 solid #eeeef0;border-width:1px 0;padding:2px 10px 10px;margin-bottom:10px;background:#f6f6f6}.plus{border:1px solid #d9dde2;margin-top:8px;background:#fff}.plus-title{position:relative;margin:2px 14px 0;height:40px;text-align:left}.edit-title{opacity:0}.plus-title h2{padding-left:19px;line-height:40px;font-size:15px;font-weight:400;color:#aaa}.plus-content{overflow:hidden;margin-top:-5px;font-size:14px}.plus-content a{color:#262626}#admin{padding:0;line-height:45px;height:45px;color:#0058d2;font-size:15px;text-indent:-8px}.icon-setting:before{content:"\e628";font-size:18px;line-height:18px;color:#0985C4;margin-right:4px}#admin-bottom{margin-top:16px;height:40px;line-height:40px;color:#262626;background:#f7f7f7;font-size:14px}.white-page #foot{margin-top:18px}.white-page #admin-bottom{display:block}.plus-empty{text-align:center}.plus-empty p:first-child{margin-bottom:10px;line-height:15px;font-size:15px;color:#0058d2}.plus-empty p:last-child{line-height:14px;font-size:14px;color:#262626}.plus-content.empty .plus-empty{display:block}.ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media only screen and (min-height:500px){.white-page #bottom{position:absolute;width:100%;bottom:0}}@media only screen and (max-height:500px){.white-page #bottom{position:static!important;margin-top:30px!important}}.callicon-wrap{position:absolute;top:0;left:-39px;z-index:10}.baiduapp-icon:before{content:"";position:absolute;top:18px;right:12px;border:4px solid transparent;border-top-color:#717077}.baiduapp-icon{width:39px;height:39px;text-align:left}.baiduappcall-wrap{display:none}</style>
+	<!-- build:vendor(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <!-- <link rel="stylesheet" href="styles/base.css" /> -->
+    <!-- endbuild -->
 </head>
-    <script src="lib/react/react.js"></script>
-    <script src='lib/react//JSXTransformer.js'></script>
-    <link rel="stylesheet" type="text/css" href="./lib/css/cssReset.css">
-    <link rel="stylesheet" type="text/css" href="./lib/css/app.css">
-
 <body>
-    
-    <div id="example"></div>
+<div id="otherqb">第三方调起QB</div>
+<script type="text/javascript" src="http://res.imtt.qq.com///component/bj-report.js"></script>
+<script>
+	// http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/
+	BJ_REPORT.init({
+	  id: 136, // 不指定 id 将不上报
+	  url: "//badjs2.qq.com/badjs",
+	  uin: navigator.userAgent,
+	  level: 4
+	});
+	var openUrl = function(url) {
+	    //为兼容ios8，ios8不兼容window.location
+	    // var a = document.createElement("a");
+	    // a.href = url;
+	    // var click = document.createEvent("Event");
+	    // click.initEvent("click", false /*bubbles*/, true /*cancellable*/);
+	    // a.dispatchEvent(click);
+	    var div = document.createElement('div');
+        div.style.visibility = 'hidden';
+        div.innerHTML = "<iframe id=\"schema\" src=\"" + url + "\" scrolling=\"no\" width=\"1\" height=\"1\"></iframe>";
+        document.body.appendChild(div);
+	};
+	document.getElementById("otherqb").addEventListener("click", function() {
+		openUrl("mttbrowser://url=info.3g.qq.com");
+		var start = Date.now();
+		setTimeout(function() {
+			var time = Date.now() - start;
+			if (time < 1000) {
+				location.href = "http://info.3g.qq.com";
+				BJ_REPORT.report("schema open qb fail");
+    		}
+		}, 800);
+	}, false);
+</script>
 </body>
-    <script type="text/jsx" src='lib/js/index.js'></script>
 </html>
-
-
