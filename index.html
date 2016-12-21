@@ -14,39 +14,6 @@
     <!-- endbuild -->
 </head>
 <body>
-<div id="otherqb">第三方调起QB</div>
-<script type="text/javascript" src="http://res.imtt.qq.com///component/bj-report.js"></script>
-<script>
-    // http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/
-    // BJ_REPORT.init({
-    //   id: 136, // 不指定 id 将不上报
-    //   url: "//badjs2.qq.com/badjs",
-    //   uin: navigator.userAgent,
-    //   level: 4
-    // });
-    var openUrl = function(url) {
-        //为兼容ios8，ios8不兼容window.location
-        // var a = document.createElement("a");
-        // a.href = url;
-        // var click = document.createEvent("Event");
-        // click.initEvent("click", false /*bubbles*/, true /*cancellable*/);
-        // a.dispatchEvent(click);
-        var div = document.createElement('div');
-        div.style.visibility = 'hidden';
-        div.innerHTML = "<iframe id=\"schema\" src=\"" + url + "\" scrolling=\"no\" width=\"1\" height=\"1\"></iframe>";
-        document.body.appendChild(div);
-    };
-    document.getElementById("otherqb").addEventListener("click", function() {
-        openUrl("mttbrowser://url=info.3g.qq.com");
-        // var start = Date.now();
-        // setTimeout(function() {
-        //  var time = Date.now() - start;
-        //  if (time < 1000) {
-        //      location.href = "http://info.3g.qq.com";
-        //      BJ_REPORT.report("schema open qb fail");
-  //        }
-        // }, 800);
-    }, false);
-</script>
+
 </body>
 </html>
