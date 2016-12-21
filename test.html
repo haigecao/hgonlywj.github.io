@@ -124,16 +124,16 @@
             2 : "Easterbunny/EasterBunny.pmd",
             3 : "Alparka.pmx",
             4 : "BunnyPajamas.pmx",
-            5 : "Crane.pmx",
-            6 : "Kasha.pmx",
-            7 : "Polka.pmx",
-            8 : "Wedding.pmx",
-            9 : "Originator.pmx",
-            10 : "Hood.pmx",
-            11 : "Floral.pmx",
+            5 : "Crane/Crane.pmx",
+            6 : "Kasha/Kasha.pmx",
+            7 : "Polka/Polka.pmx",
+            8 : "Wedding/Wedding.pmx",
+            9 : "Originator/Originator.pmx",
+            10 : "Hood/Hood.pmx",
+            11 : "Floral/Floral.pmx",
             12 : "jihouchan/jihouchan.pmd",
-            13 : "Holiday.pmx",
-            14 : "Guilty.pmx",
+            13 : "Holiday/Holiday.pmx",
+            14 : "Guilty/Guilty.pmx",
         };
 
         // 模型的动作
@@ -171,16 +171,18 @@
             obj["ac"] = 1;
         }
 
-        var modelName = modle[obj["id"]];
+        // var modelName = modle[obj["id"]];
 
-        if (modelName.indexOf('pmx') != -1) {
+        // if (modelName.indexOf('pmx') != -1) {
 
-            modelFile = 'https://github.com/hgonlywj/vRsourse/blob/master/' + modelName;
+        //     modelFile = 'https://github.com/hgonlywj/vRsourse/blob/master/' + modelName;
 
-        } else {
+        // } else {
 
-            modelFile = "./Model/" + modelName;
-        }
+        //     modelFile = "./Model/" + modelName;
+        // }
+        
+        modelFile = "./Model/" + modelName;
         vmdFiles = action[obj["ac"]];
 
         console.log(obj, " \n", "modelFile = ", modelFile, " \n vmdFiles = ", vmdFiles );
