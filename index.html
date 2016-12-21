@@ -1,19 +1,344 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>build tools</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <style type="text/css" id='spa-base-style'>#search-card {display: none;}</style><style type="text/css" class="spa-index-style" data-lsid="plus_css_head">body,h1,h2,h3,p,div,ol,ul,input,button{margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;text-align:center;-webkit-text-size-adjust:none;overflow-x:hidden}ol,ul{list-style:none}a{text-decoration:none}input,button,textarea{border:0;border-radius:0;background:transparent;-webkit-appearance:none;-webkit-box-sizing:border-box;box-sizing:border-box}button{outline:0}@font-face{font-family:icons;src:url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.eot);src:url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.eot#iefix) format('embedded-opentype'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.woff) format('woff'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.ttf) format('truetype'),url(//m.baidu.com/static/index/iconfont/iconfont_78d9aaf6.svg?#iconfont) format('svg');font-weight:400;font-style:normal}#index-card [class^=icon-],#index-card [class*=" icon-"],#index-view [class^=icon-],#index-view [class*=" icon-"]{font-family:icons;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px}#index-card .normal-title>i{position:absolute;top:11px;left:-2px}#index-card .icon-add,#index-view .icon-add{font-size:24px;color:#B6B7BA}#index-view .icon-url,#index-view .icon-nav{color:#777}#index-card .icon-arrow:before{content:'\e612';color:#b6b7ba}#userinfo-wrap{position:relative;height:54px}#userinfo{display:block;position:absolute;right:6px;top:17px;max-width:6em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:5px 8px;font-size:14px;color:#262626}#login{position:absolute;top:3px;right:0;padding:7px;color:#B2B4BA;font-size:28px;line-height:20px}#header{padding-bottom:10px}#logo{height:55px;padding:17px 0 15px}#index-form{margin:0 10px;border:1px solid #8d9394;border-radius:1px;height:42px;-webkit-box-shadow:0 1px 1px 0 #dfdfdf;background:#fff}#index-form .con-wrap{display:-webkit-box}#index-card .se-input,#index-card .se-encode{display:block;-webkit-box-flex:1;margin:2px 0;padding:6px 35px 6px 6px;font-size:18px;line-height:24px;-webkit-tap-highlight-color:rgba(0,0,0,0)}#index-card .se-inner{width:79px;position:relative}#index-bn{position:absolute;top:0;right:0;width:79px;height:42px;background:#ececec;background:-webkit-linear-gradient(top,#f9f9f9,#e7e9eb);color:#46484b;-webkit-box-shadow:0 0 0 1px #fff inset;box-shadow:0 0 0 1px #fff inset;-webkit-text-shadow:0 1px 0 #fafafa;text-shadow:0 1px 0 #fafafa;white-space:nowrap;line-height:42px;border-left:1px solid #8d9394;letter-spacing:-1px;font-weight:700;font-size:16px}#foot{margin:20px 25px 0;background:#fff}#foot div a{display:inline-block;height:24px;width:47%;line-height:24px;border:1px solid #ececec;border-radius:1px;color:#555;font-size:13px}#foot div a:first-child{float:left}#foot div a:last-child{float:right}#index-copyright{display:block;font-size:10px;line-height:20px;padding:35px 0 13px;color:#aaa}#index-card{position:relative}#index-card .se-input{-webkit-border-radius:0;border-radius:0;margin:0;padding:7px 42px 7px 6px;height:42px;line-height:28px;resize:none;overflow:hidden;font-family:Arial,Helvetica,sans-serif}.input-hidden{position:absolute;left:6px;top:0;visibility:hidden}.adjust-input{position:relative;margin:0 -74px 0 0;line-height:29px;word-break:break-all;word-wrap:break-word}@charset "UTF-8";#navs:not(.expand) a:nth-child(n+7),[data-role=cache],[data-role=view],.plus-edit-foot,.plus-edit,.plus-edit-option,.refresh,#admin-bottom,.white-page #plus-card,.plus-empty{display:none}.navs-news:before{content:'\e672';color:#777;font:24px/1 icons}.navs-tieba:before{content:'\e670';color:#777;font:24px/1 icons}.navs-novel:before{content:'\e676';color:#777;font:24px/1 icons}.navs-video:before{content:'\e66f';color:#777;font:24px/1 icons}.navs-life:before{content:'\e730';color:#777;font:24px/1 icons}.navs-website:before{content:'\e675';color:#777;font:24px/1 icons}.navs-extend:before{content:'\e727';color:#777;font:24px/1 icons}.navs-more:before{content:'\e674';color:#777;font:24px/1 icons}.navs-map:before{content:'\e66c';color:#777;font:24px/1 icons}.navs-image:before{content:'\e66e';color:#777;font:24px/1 icons}.navs-app:before{content:'\e677';color:#777;font:24px/1 icons}.white-page,.white-page body{height:100%}#page,#index-card{height:inherit}#navs{margin:17px 0 14px;overflow:hidden}#navs a{float:left;width:16%;font-size:13px;color:#262626}#navs a i{display:block;margin-bottom:4px;height:24px}#navs a:first-child,#navs a:nth-child(7){margin-left:2%}#navs a:nth-child(6){margin-right:2%}#navs.expand .navs-more:before{content:'\e673'}#navs a:nth-child(n+7){margin-top:9px}#plus-card{position:relative;border:0 solid #eeeef0;border-width:1px 0;padding:2px 10px 10px;margin-bottom:10px;background:#f6f6f6}.plus{border:1px solid #d9dde2;margin-top:8px;background:#fff}.plus-title{position:relative;margin:2px 14px 0;height:40px;text-align:left}.edit-title{opacity:0}.plus-title h2{padding-left:19px;line-height:40px;font-size:15px;font-weight:400;color:#aaa}.plus-content{overflow:hidden;margin-top:-5px;font-size:14px}.plus-content a{color:#262626}#admin{padding:0;line-height:45px;height:45px;color:#0058d2;font-size:15px;text-indent:-8px}.icon-setting:before{content:"\e628";font-size:18px;line-height:18px;color:#0985C4;margin-right:4px}#admin-bottom{margin-top:16px;height:40px;line-height:40px;color:#262626;background:#f7f7f7;font-size:14px}.white-page #foot{margin-top:18px}.white-page #admin-bottom{display:block}.plus-empty{text-align:center}.plus-empty p:first-child{margin-bottom:10px;line-height:15px;font-size:15px;color:#0058d2}.plus-empty p:last-child{line-height:14px;font-size:14px;color:#262626}.plus-content.empty .plus-empty{display:block}.ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media only screen and (min-height:500px){.white-page #bottom{position:absolute;width:100%;bottom:0}}@media only screen and (max-height:500px){.white-page #bottom{position:static!important;margin-top:30px!important}}.callicon-wrap{position:absolute;top:0;left:-39px;z-index:10}.baiduapp-icon:before{content:"";position:absolute;top:18px;right:12px;border:4px solid transparent;border-top-color:#717077}.baiduapp-icon{width:39px;height:39px;text-align:left}.baiduappcall-wrap{display:none}</style>
-    <!-- build:vendor(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css styles/main.css -->
-    <!-- <link rel="stylesheet" href="styles/base.css" /> -->
-    <!-- endbuild -->
+    <title>Three.js example 7</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+
+        /* http://meyerweb.com/eric/tools/css/reset/
+      v2.0 | 20110126
+      License: none (public domain)
+   */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .img {
+            width: 200px;
+        }
+
+        .selectAction {
+            float: right;
+            width: 150px;
+            border: 1px solid #0000AA;
+        }
+
+        .action {
+            margin: 10px 10px 0 0 ;
+            width: 150px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .actionItem {
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .hg {
+            margin: 40px 0 0 20px;
+
+        }
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #800b41;
+        }
+
+        .goto {
+            border: 3px solid red;
+        }
+
+        .lable {
+            margin: 20px 0 10px 0;
+            font-size: 30px;
+        }
+    </style>
 </head>
-<body>
+
+<body id="hgID">
+
+
+<div class="selectAction">
+    <div class="action" for="action">选择动作</div>
+    <select id="actionItem" name="" class="actionItem">
+        <option value="1" >舞蹈A</option>
+        <option value ="2">熊猫正步走</option>
+        <option value ="3">摆臂舞</option>
+        <option value="4">必杀1——前滚翻</option>
+        <option value="5">必杀2——双剑</option>
+        <option value="6">必杀3——后踢腿</option>
+        <option value="7">必杀4——挥拳</option>
+        <option value="8">必杀5——上墙空翻</option>
+        <option value="9">必杀6——前踢腿</option>
+        <option value="10">必杀10——重拳</option>
+        <option value="11">必杀11——蓄势</option>
+        <option value="12">必杀10——崩拳</option>
+        <option value="13">nobody</option>
+        <option value="14">体操</option>
+        <option value="15">balalaika</option>
+        <option value="16">体操帝——熊猫团</option>
+        <option value="17">把你mikumiku掉</option>
+        <option value="18">doara</option>
+        <option value="19">左右抖动</option>
+        <option value="20">FirstKiss</option>
+        <option value="21">only my railgun N</option>
+    </select>
+
+<br><br>
+<hr>
+    <div class="action" for="action">只有一首音乐</div>
+    <select id="muiceItem"  class="actionItem">
+        <option value = "0" >关闭</option>
+        <option value = "1">开启</option>
+    </select>
+
+    
+</div>
+
+
+
+
+
+<ul class="hg">
+    <p class="lable">点击图片跳转</p>
+    <li>
+        <p>
+            <span>模型名称1</span>
+            <span class="name">[corico]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="1" >
+                <img class="img" src="./image/1.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称2</span>
+            <span class="name">[Easterbunny]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="2">
+                <img class="img" src="./image/2.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称3</span>
+            <span class="name">[Alparka]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="3">
+                <img class="img" src="./image/3.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称4</span>
+            <span class="name">[BunnyPajamas]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="4">
+                <img class="img" src="./image/4.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称5</span>
+            <span class="name">[Crane]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="5">
+                <img class="img" src="./image/5.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称6</span>
+            <span class="name">[Kasha]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="6">
+                <img class="img" src="./image/6.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称7</span>
+            <span class="name">[Wedding]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="7">
+                <img class="img" src="./image/7.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称8</span>
+            <span class="name">[Alparka]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="8">
+                <img class="img" src="./image/8.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <p>
+            <span>模型名称9</span>
+            <span class="name">[Originator]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="9">
+                <img class="img" src="./image/9.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称10</span>
+            <span class="name">[Hood]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="10">
+                <img class="img" src="./image/10.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称11</span>
+            <span class="name">[Floral]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="11">
+                <img class="img" src="./image/11.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称12</span>
+            <span class="name">[jihouchan]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="12">
+                <img class="img" src="./image/12.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称13</span>
+            <span class="name">[Holiday]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="13">
+                <img class="img" src="./image/13.png" alt=""/>
+            </a>
+        </div>
+    </li>
+    <li>
+        <p>
+            <span>模型名称14</span>
+            <span class="name">[Guilty]</span>
+        </p>
+        <div>
+            <a class="goto" data-attr="14">
+                <img class="img" src="./image/14.png" alt=""/>
+            </a>
+        </div>
+    </li>
+
+<script>
+    
+    var ac = 1;
+    var yy = 0;
+
+    var select1 = document.getElementById('actionItem');
+    select1.onchange = function(evt){
+        ac = select1.value;
+    }
+
+
+    
+    var select2 = document.getElementById('muiceItem');
+    select2.onchange = function(evt){
+        yy = select2.value;
+    }
+
+
+    var gotoList = document.querySelectorAll(".goto");
+    for (var i = 0; i < gotoList.length; i++) {
+        gotoList[i].addEventListener("click", clcikFun, false);
+    }
+
+    function clcikFun(e) {
+        id = e.srcElement.parentNode.dataset.attr;
+        location.href += './test.html?id=' + id + "&ac=" + ac + "&yy=" + yy; 
+    }
+
+
+</script>
+
+</ul>
+
 
 </body>
 </html>
