@@ -95,20 +95,20 @@
        light.castShadow = true;
        scene.add(light);
 
-        var plane = new THREE.Mesh(
-            new THREE.CubeGeometry(20, 20, 1),
-            new THREE.MeshLambertMaterial({color: 0xffffff})
-        );
-        plane.position.set(0, -10.5, 0);
-        plane.rotation.x += Math.PI / 2;
-        plane.receiveShadow = true;
-        scene.add(plane);
+        // var plane = new THREE.Mesh(
+        //     new THREE.CubeGeometry(20, 20, 1),
+        //     new THREE.MeshLambertMaterial({color: 0xffffff})
+        // );
+        // plane.position.set(0, -10.5, 0);
+        // plane.rotation.x += Math.PI / 2;
+        // plane.receiveShadow = true;
+        // scene.add(plane);
         //抗锯齿，背景黑色
         renderer = new THREE.WebGLRenderer({antialias: true});
         renderer.shadowMap.enabled = true;
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(new THREE.Color(0x00000)); // 初始化背景颜色
+        renderer.setClearColor(new THREE.Color(0x0f0f0f)); // 初始化背景颜色
         container.appendChild(renderer.domElement);
 
         var onProgress = function (xhr) {
