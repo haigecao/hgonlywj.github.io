@@ -86,8 +86,8 @@
         scene = new THREE.Scene();
         controls = new THREE.TrackballControls( camera );
 
-        var ambient = new THREE.AmbientLight(0xcccccc);
-        scene.add(ambient);
+        // var ambient = new THREE.AmbientLight(0xcccccc);
+        // scene.add(ambient);
 
        var light = new THREE.DirectionalLight(0x887766);
        light.position.set(-1, 20, 0);
@@ -104,12 +104,12 @@
         // plane.receiveShadow = true;
         // scene.add(plane);
         //抗锯齿，背景黑色
-        renderer = new THREE.WebGLRenderer({antialias: true});
-        renderer.shadowMap.enabled = true;
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(new THREE.Color(0x0f0f0f)); // 初始化背景颜色
-        container.appendChild(renderer.domElement);
+        // renderer = new THREE.WebGLRenderer({antialias: true});
+        // renderer.shadowMap.enabled = true;
+        // renderer.setPixelRatio(window.devicePixelRatio);
+        // renderer.setSize(window.innerWidth, window.innerHeight);
+        // renderer.setClearColor(new THREE.Color(0x0f0f0f)); // 初始化背景颜色
+        // container.appendChild(renderer.domElement);
 
         var onProgress = function (xhr) {
             if (xhr.lengthComputable) {
