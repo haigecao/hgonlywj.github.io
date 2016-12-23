@@ -187,13 +187,12 @@
 				container.appendChild( stats.domElement );
 
 				initModel();
-				initRoom();
+//				initRoom();
 				initLights();
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
 				clock = new THREE.Clock();
-
 			}
 
 			function initModel() {
@@ -208,15 +207,10 @@
 				var onError = function ( xhr ) {
 				};
 
-				// see the license https://github.com/takahirox/MMDLoader-app#readme for these assets
-
-
                 var obj = parseQueryString(location.search);
-
                 if (typeof obj["id"] == undefined) {
                     obj["id"] = 0;
                 }
-
                 if (typeof obj["ac"] == undefined) {
                     obj["ac"] = 0;
                 }
@@ -239,12 +233,9 @@
 					scene.add( mesh );
 
 					for ( var i = 0, il = mesh.material.materials.length; i < il; i ++ ) {
-
 						var material = mesh.material.materials[ i ];
 						material.emissive.multiplyScalar( 0.2 );
-
 					}
-
 					helper.add( mesh );
 					helper.setAnimation( mesh );
 
@@ -260,39 +251,37 @@
 					 *       after calling helper.setAnimation().
 			 		 */
 					helper.setPhysics( mesh );
-					physicsHelper = new THREE.MMDPhysicsHelper( mesh );
-					physicsHelper.visible = false;
-					scene.add( physicsHelper );
-
-					helper.unifyAnimationDuration( { afterglow: 2.0 } );
-
 					ready = true;
 
 				}, onProgress, onError );
 
+				var isDown = false;
+		        document.addEventListener('mousemove', function (e) {
+		            if (!isDown)return;
+		            dx = e.clientX - x;
+		            dy = e.clientY - y;
+
+		            x = e.clientX;
+		            y = e.clientY;
+		        });
+		        document.addEventListener('mousedown', function (e) {
+		            isDown = true;
+		            x = e.clientX;
+		            y = e.clientY;
+		        });
+		        document.addEventListener('mouseup', function () {
+		            isDown = false;
+		            dx = dy = 0;
+		        });
+
 			}
 
 			function initLights() {
-
 				var distance = 7;
-
 				var c = new THREE.Vector3();
 				var geometry = new THREE.SphereGeometry( 0.1, 0.1, 0.1 );
 
-				for ( var i = 0; i < numLights; i ++ ) {
-					var light = new THREE.PointLight( 0xffffff, 2.0, distance );
-					c.set( Math.random(), Math.random(), Math.random() ).normalize();
-					light.color.setRGB( c.x, c.y, c.z );
-					scene.add( light );
-					lights.push( light );
-
-					var material = new THREE.MeshBasicMaterial( { color: light.color } );
-					var emitter = new THREE.Mesh( geometry, material );
-					light.add( emitter );
-				}
-
-//				var directionalLight = new THREE.DirectionalLight( 0x101010 );
-				var directionalLight = new THREE.DirectionalLight( 0x202020 );
+				var directionalLight = new THREE.DirectionalLight( 0x101010 );
 				directionalLight.position.set( -1, 1, 1 ).normalize();
 				scene.add( directionalLight );
 				var spotLight = new THREE.SpotLight( 0xf0f0f0 );
@@ -301,47 +290,7 @@
 				scene.add( spotLight );
 			}
 
-			function initRoom() {
 
-				var size = 50;
-				var geometry = new THREE.PlaneBufferGeometry( size, size );
-				var material = new THREE.MeshPhongMaterial( { color: 0x222222, specular: 0x222222, shininess: 75 } );
-
-				var room = new THREE.Object3D();
-				room.position.y = size / 2 - 10;
-
-				// top
-				var mesh = new THREE.Mesh( geometry, material );
-				mesh.rotation.x = Math.PI/2;
-				mesh.position.y = size / 2;
-				room.add( mesh );
-
-				// bottom
-				mesh = new THREE.Mesh( geometry, material );
-				mesh.rotation.x = -Math.PI/2;
-				mesh.position.y = -size / 2;
-				room.add( mesh );
-
-				// left
-				mesh = new THREE.Mesh( geometry, material );
-				mesh.position.x = -size / 2;
-				mesh.rotation.y = Math.PI/2;
-				room.add( mesh );
-
-				// right
-				mesh = new THREE.Mesh( geometry, material );
-				mesh.position.x = size / 2;
-				mesh.rotation.y = -Math.PI/2;
-				room.add( mesh );
-
-				// back
-				mesh = new THREE.Mesh( geometry, material );
-				mesh.position.z = -size / 2;
-				room.add( mesh );
-
-				scene.add( room );
-
-			}
 
 			function onWindowResize( event ) {
 
@@ -376,28 +325,21 @@
 			function update() {
 
 				controls.update();
-
 				var delta = clock.getDelta();
 				var time = Date.now() * 0.0006;
-
 				helper.animate( delta );
-
-				for ( var i = 0, il = lights.length; i < il; i ++ ) {
-
-					var light = lights[ i ];
-					var x = Math.sin( time + i * 7.0 ) * 24 * Math.abs( Math.sin( time / i / 7.0 ) );
-					var y = Math.cos( time + i * 5.0 ) * 15 * Math.abs( Math.sin( time / i / 13.0 ) ) + 6;
-					var z = Math.cos( time + i * 3.0 ) * 24 * Math.abs( Math.sin( time / i / 17.0 ) );
-					light.position.set( x, y, z );
-
-				}
+//				for ( var i = 0, il = lights.length; i < il; i ++ ) {
+//					var light = lights[ i ];
+//					var x = Math.sin( time + i * 7.0 ) * 24 * Math.abs( Math.sin( time / i / 7.0 ) );
+//					var y = Math.cos( time + i * 5.0 ) * 15 * Math.abs( Math.sin( time / i / 13.0 ) ) + 6;
+//					var z = Math.cos( time + i * 3.0 ) * 24 * Math.abs( Math.sin( time / i / 17.0 ) );
+//					light.position.set( x, y, z );
+//				}
 
 			}
 
 			function render() {
-
 				renderer.render( scene, camera );
-
 			}
 
 		</script>
