@@ -26,8 +26,8 @@
       <file leaf-file-name="hg.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="260" column="0" lean-forward="true" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="210" column="34" lean-forward="true" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -60,6 +60,8 @@
       <find>initLights</find>
       <find>onProgress</find>
       <find>mesh</find>
+      <find>action</find>
+      <find>modle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,12 +140,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1482462347433</updated>
-      <workItem from="1482462348833" duration="5350000" />
+      <workItem from="1482462348833" duration="6101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5350000" />
+    <option name="totallyTimeSpent" value="6101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -197,8 +199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="260" column="0" lean-forward="true" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="210" column="34" lean-forward="true" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
           <folding />
         </state>
       </provider>
