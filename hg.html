@@ -188,7 +188,6 @@
 			}
 
 			function initModel() {
-
 				var onProgress = function ( xhr ) {
 					if ( xhr.lengthComputable ) {
 						var percentComplete = xhr.loaded / xhr.total * 100;
@@ -199,7 +198,6 @@
 
 				var onError = function ( xhr ) {
 				};
-
                 var obj = parseQueryString(location.search);
                 if (typeof obj["id"] == undefined) {
                     obj["id"] = 0;
@@ -260,6 +258,8 @@
 		            isDown = false;
 		            dx = dy = 0;
 		        });
+
+
 
 			}
 
