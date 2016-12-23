@@ -30,37 +30,44 @@
 			#stats #fps { background: transparent !important }
 			#stats #fps #fpsText { color: #aaa !important }
 			#stats #fps #fpsGraph { display: none }
+			#show {
+				margin: 100px auto 0;
+				z-index: 1000;
+				background: #ffffff;
+				font-size: 40px;
+			}
+			#fuck {
+				text-align: center;
+			}
 		</style>
 	</head>
 
 	<body>
 
 
+		<div id="show">
+			<p id="fuck">下载中.....</p>
+		</div>
 		<div id="container"></div>
 
 		<script src="three.js/three.js"></script>
 		<script src="three.js/Detector.js"></script>
-
 		<script src="three.js/CopyShader.js"></script>
 		<script src="three.js/FXAAShader.js"></script>
-
 		<script src="three.js/EffectComposer.js"></script>
 		<script src="three.js/RenderPass.js"></script>
 		<script src="three.js/ShaderPass.js"></script>
 		<script src="three.js/WebGLDeferredRenderer.js"></script>
-
 		<script src="libs/mmdparser.min.js"></script>
 		<script src="libs/ammo.js"></script>
-
 		<script src="three.js/TGALoader.js"></script>
 		<script src="three.js/MMDLoader.js"></script>
 		<script src="three.js/OutlineEffect.js"></script>
 		<script src="three.js/CCDIKSolver.js"></script>
 		<script src="three.js/MMDPhysics.js"></script>
-
 		<script src="three.js/TrackballControls.js"></script>
-
 		<script src="libs/stats.min.js"></script>
+
 
 		<script>
             // 模型的路径
@@ -123,7 +130,6 @@
                     json[tmp[0]] = tmp[1];
                 });
 
-
                 if (typeof json['id'] == undefined || typeof json['id'] == null) {
                     json["id"] = 0;
                 }
@@ -134,7 +140,6 @@
 
                 return json;
             }
-
 
 			var WIDTH = window.innerWidth;
 			var HEIGHT = window.innerHeight;
@@ -158,7 +163,6 @@
 			animate();
 
 			function init() {
-
 				renderer = new THREE.WebGLDeferredRenderer();
 				renderer.enableLightPrePass( true );
 				renderer.forwardRendering = true;
@@ -188,6 +192,7 @@
 				var onProgress = function ( xhr ) {
 					if ( xhr.lengthComputable ) {
 						var percentComplete = xhr.loaded / xhr.total * 100;
+
 						console.log( Math.round(percentComplete, 2) + '% downloaded' );
 					}
 				};
@@ -208,10 +213,6 @@
                 vmdFiles = action[obj["ac"]];
                 console.log(obj, " \n", "modelFile = ", modelFile, " \n vmdFiles = ", vmdFiles );
 
-//              if (1) {
-//                    modelFile = 'https://cdn.rawgit.com/mrdoob/three.js/dev/examples/models/mmd/miku/miku_v2.pmd';
-//                    vmdFiles = [ 'https://cdn.rawgit.com/mrdoob/three.js/dev/examples/models/mmd/vmds/wavefile_v2.vmd' ];
-//				}
 
 				helper = new THREE.MMDHelper();
 				var loader = new THREE.MMDLoader();
@@ -227,20 +228,17 @@
 					helper.add( mesh );
 					helper.setAnimation( mesh );
 
-					/*
-					 * Note: create CCDIKHelper after calling helper.setAnimation()
-					 */
 					ikHelper = new THREE.CCDIKHelper( mesh );
 					ikHelper.visible = false;
 					scene.add( ikHelper );
 
-					/*
-					 * Note: You're recommended to call helper.setPhysics()
-					 *       after calling helper.setAnimation().
-			 		 */
 					helper.setPhysics( mesh );
 					ready = true;
+					console.log("OK");
 
+                    setTimeout(function () {
+                        document.getElementById("show").style.display="none"
+                    }, 50);
 				}, onProgress, onError );
 
 				var isDown = false;
@@ -296,18 +294,12 @@
 			}
 
 			function animate() {
-
 				requestAnimationFrame( animate );
-
 				if ( ready ) {
-
 					update();
 					render();
-
 				}
-
 				stats.update();
-
 			}
 
 			function update() {
@@ -316,13 +308,13 @@
 				var delta = clock.getDelta();
 				var time = Date.now() * 0.0006;
 				helper.animate( delta );
-//				for ( var i = 0, il = lights.length; i < il; i ++ ) {
-//					var light = lights[ i ];
-//					var x = Math.sin( time + i * 7.0 ) * 24 * Math.abs( Math.sin( time / i / 7.0 ) );
-//					var y = Math.cos( time + i * 5.0 ) * 15 * Math.abs( Math.sin( time / i / 13.0 ) ) + 6;
-//					var z = Math.cos( time + i * 3.0 ) * 24 * Math.abs( Math.sin( time / i / 17.0 ) );
-//					light.position.set( x, y, z );
-//				}
+				for ( var i = 0, il = lights.length; i < il; i ++ ) {
+					var light = lights[ i ];
+					var x = Math.sin( time + i * 7.0 ) * 24 * Math.abs( Math.sin( time / i / 7.0 ) );
+					var y = Math.cos( time + i * 5.0 ) * 15 * Math.abs( Math.sin( time / i / 13.0 ) ) + 6;
+					var z = Math.cos( time + i * 3.0 ) * 24 * Math.abs( Math.sin( time / i / 17.0 ) );
+					light.position.set( x, y, z );
+				}
 
 			}
 
@@ -340,6 +332,15 @@
                     action.play();
                 }
             }
+
+            // error 监控
+//            window.onerror = function (message, url, line) {
+//                console.log(message);
+//                console.log(url);
+//                console.log(line);
+//                alert(JSON.stringify(message));
+//            };
+
 
 		</script>
 	</body>

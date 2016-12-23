@@ -108,7 +108,7 @@
         renderer.shadowMap.enabled = true;
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(new THREE.Color(0x00000)); // 初始化背景颜色
+        renderer.setClearColor(new THREE.Color(0x111111)); // 初始化背景颜色
         container.appendChild(renderer.domElement);
 
         var onProgress = function (xhr) {
@@ -285,20 +285,20 @@
             var count = countTime%15;
             // console.log("count = ", count);
 
-            // if (count == 0 && countTime != 0) {
-            //     if (onceTime == true) {
-            //         onceTime = false;
-            //         for (var i = 0; i < mesh.geometry.animations.length; i++) {
-            //             clip = mesh.geometry.animations[i];
-            //             action = mesh.mixer.clipAction(clip);
-            //             action.time = 1000;
-            //             action.play();
-            //         }
-            //         console.log("change  1000");
-            //     }
-            // } else {
-            //     onceTime = true;
-            // }
+             if (count == 0 && countTime != 0) {
+                 if (onceTime == true) {
+                     onceTime = false;
+                     for (var i = 0; i < mesh.geometry.animations.length; i++) {
+                         clip = mesh.geometry.animations[i];
+                         action = mesh.mixer.clipAction(clip);
+                         action.time = 1000;
+                         action.play();
+                     }
+                     console.log("change  1000");
+                 }
+             } else {
+                 onceTime = true;
+             }
 
             helper.animate(clockTime);
             helper.render(scene, camera);
