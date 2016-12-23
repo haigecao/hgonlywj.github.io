@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f6a79f2-a17d-4525-bdb3-4b1bbdcef8d8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/eyeM2.bmp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wavefile_v2.vmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hg.html" afterPath="$PROJECT_DIR$/hg.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,8 +29,18 @@
       <file leaf-file-name="hg.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+            <state relative-caret-position="-2112">
+              <caret line="218" column="24" lean-forward="false" selection-start-line="218" selection-start-column="20" selection-end-line="218" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="380" column="33" lean-forward="false" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -38,6 +51,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>initLights</find>
+      <find>mesh</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,12 +128,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1482462347433</updated>
-      <workItem from="1482462348833" duration="1024000" />
+      <workItem from="1482462348833" duration="1795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1024000" />
+    <option name="totallyTimeSpent" value="1795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -155,10 +169,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4305">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="380" column="33" lean-forward="false" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        <state relative-caret-position="-2112">
+          <caret line="218" column="24" lean-forward="false" selection-start-line="218" selection-start-column="20" selection-end-line="218" selection-end-column="24" />
           <folding />
         </state>
       </provider>
