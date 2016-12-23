@@ -183,7 +183,7 @@
 				initLights();
 
 				window.addEventListener( 'resize', onWindowResize, false );
-                window.addEventListener('click', onWindowClick, false);
+                window.addEventListener('touchstart', onWindowClick, false);
 				clock = new THREE.Clock();
 			}
 
@@ -325,6 +325,7 @@
 
             function onWindowClick(e) {
                 console.log("dblclick");
+//                alert("hg");
                 for (var i = 0; i < mesh.geometry.animations.length; i++) {
                     clip = mesh.geometry.animations[i];
                     action = mesh.mixer.clipAction(clip);
