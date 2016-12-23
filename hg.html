@@ -216,6 +216,7 @@
 
 				helper = new THREE.MMDHelper();
 				var loader = new THREE.MMDLoader();
+				mesh = "";
 				loader.load( modelFile, vmdFiles, function ( object ) {
 					mesh = object;
 					mesh.position.y = -10;
