@@ -15,7 +15,8 @@ camera.transform.localPosition  =  new Laya.Vector3(-1,2,10);
 // scene.addChild(map);
 
 //载入并显示人物模型
-var step = 100;
+var number = params.getKey('number', location.href);
+var step = number || 10;
 var girlArr = [];
 for (var i = 0; i < step; i++) {
     var girl = new Laya.MeshSprite3D(Laya.Mesh.load("girl/girl-polySurface1030.lm"));

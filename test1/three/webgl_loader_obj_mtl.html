@@ -22,6 +22,7 @@
 		<script src="./libs/OBJLoader.js"></script>
 		<script src="./libs/Detector.js"></script>
 		<script src="./libs/stats.js"></script>
+		<script src="http://res.imtt.qq.com/component/params.js?v=201612212000"></script>
 		<script src="http://res.imtt.qq.com/component/tbs_webgl.js"></script>
 		<script>
 			var container, stats;
@@ -81,7 +82,8 @@
 				// mtlLoader.load( 'male02_dds.mtl', function( materials ) {
 				objArr = [];
 				var mtlArr = [];
-				var step = 50;
+				var number = params.getKey('number', location.href);
+				var step = number || 10;
 				mtlLoader.setPath( objMtlPath );
 				function loadObjMtl() {
 					mtlLoader.load( 'test.mtl', function( materials ) {
