@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>弹窗</title>
+    <link rel="stylesheet" href="../css/g.css" media="screen" />
+    <script src="../lib/zepto.js"></script>
+    <style>
+    html,body{
+        height: 100%;
+    }
+    body{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex; 
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    .nav{
+        z-index:1100;position:relative;        
+    }
+    .nav p{
+        display: flex;
+        display: -webkit-box;    background-color: #f8f8f8;
+        border: 1px solid #e7e7e7;
+    }
+    .nav a{
+        display: block;
+        color: #777;
+        flex: 1;
+        font-size: 14px;
+        text-align: center;
+        -webkit-box-flex: 1;
+        line-height: 36px;
+    }
+    .nav a.active{
+        color: #555;
+        background-color: #e7e7e7;
+    }
+</style>
+</head>
+<body>
+    <div class="nav">
+        <p>
+            <a href="javascript:" class="click active" id="1">限免书籍</a>
+            <a href="javascript:" class="click" id="2">游戏礼包</a>
+            <a href="javascript:" class="click" id="3">书豆</a>
+        </p><p>    
+            <a href="javascript:" class="click" id="4">Q米</a>
+            <a href="javascript:" class="click" id="5">Q币</a>
+            <a href="javascript:" class="click" id="6">Q币领取</a>
+        </p><p>
+            <a href="javascript:" class="click" id="7">滴滴</a>
+            <a href="javascript:" class="click" id="8">滴滴领取</a>
+            <a href="javascript:" class="click" id="9">TBS</a>
+        </p>    
+    </div>
+    <div class="mod-alert">
+        <!-- 限免书籍 -->
+        <div class="alert-box hb ani" id="alert1" style="display:;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">限免书籍</span></div>
+                <div class="icon icon-book"></div>
+                <div class="mbtn">马上使用<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+        <!-- 游戏礼包 -->
+        <div class="alert-box hb ani" id="alert2" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">游戏礼包</span></div>
+                <div class="icon icon-gift"></div>
+                <div class="mbtn">马上使用<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+        <!-- 书豆 -->
+        <div class="alert-box hb ani" id="alert3" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">50书豆</span></div>
+                <div class="icon icon-sd"></div>
+                <div class="mbtn">马上使用<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+        <!-- Q米 -->
+        <div class="alert-box hb ani" id="alert4" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">8Q米</span></div>
+                <div class="icon icon-qm"></div>
+                <div class="mbtn">马上使用<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+        <!-- QB -->
+        <div class="alert-box hb ani" id="alert5" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">1Q币</span></div>
+                <div class="icon icon-qb"></div>
+                <div class="mbtn">马上使用<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+         <!-- QB领取 -->
+        <div class="alert-box hb ani" id="alert6" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">1Q币</span></div>
+                <div class="input"><input type="text" placeholder="请输入QQ号后点击领取" /></div>
+                <div class="mbtn is-get">点击领取</div>
+                <p class="tips">Q币将在<span class="color">7个工作日</span>发放对应的QQ中</p>
+            </div>
+        </div>
+        <!-- 滴滴 -->
+        <div class="alert-box hb ani" id="alert7" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">100元礼包劵</span></div>
+                <div class="icon icon-dd"></div>
+                <div class="mbtn">更多优惠劵<span class="G-ico G-ico-arr-r"></span></div>
+            </div>
+        </div>
+         <!-- 滴滴领取 -->
+        <div class="alert-box hb ani" id="alert8" style="display:none;">
+            <a class="G-ico G-ico-close alert-close" href="#"></a>
+            <div class="con">
+                <div class="tit">恭喜你获得<br /><span class="color">100元礼包劵</span></div>
+                <div class="input"><input type="text" placeholder="请输入手机号后点击领取" /></div>
+                <div class="mbtn is-get">点击领取</div>
+                <p class="tips"><span class="color">已阅读</span>并同意滴滴出行的活动规则</p>
+            </div>
+        </div>
+        <!-- 通用 -->
+        <div class="alert-box title-many-line ani" id="alert9" style="display:none;">
+            <div class="alert-content content-text">
+                <p class="title">请使用手机QQ浏览器<br />访问本活动</p>
+            </div>
+            <div class="btn-group two">
+                <a class="btn btn-common" href="#">下次再说</a>
+                <a class="btn btn-blue" href="#">急速安装</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            var boxs = $('.alert-box');
+            $('.click').click(function(event) {
+                $('.click').removeClass('active');$(this).addClass('active');
+                var id = this.id;
+                $('.alert-box').hide()
+                $('#alert'+id).show()
+            });
+        }, 5)
+    </script>
+</body>
+</html>

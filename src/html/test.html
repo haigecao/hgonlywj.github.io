@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//jsapi.qq.com/get?api=app.*,login.*" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    browser.define("browser.app.setShareInfo", function(options, callback/*参数列表*/){
+        var _toString = Object.prototype.toString,
+            _cb = _toString.call(callback) === '[object Function]' ? callback : function () {},
+            _opt = options;
+
+        if (_toString.call(_opt) !== '[object Object]') {
+            _cb({code: 1, msg: 'options 参数错误，必须为Object'});
+        }
+        else if (_toString.call(_opt.title) !== '[object String]') {
+            _cb({code: 2, msg: 'options.title 参数错误，必须为String'});
+        }
+        else {
+            if (_toString.call(window.browser.execWebFn) !== '[object Object]') {
+                Object.defineProperty(window.browser, 'execWebFn', {value: {}});
+            }
+
+            _opt['content_type'] = 1;
+            window.browser.execWebFn.shareInfoOptions = _opt;
+
+            if (_toString.call(window.browser.execWebFn.customQbMenuShareInfo) !== '[object Function]') {
+                Object.defineProperty(window.browser.execWebFn, 'customQbMenuShareInfo', {value: function (options/*终端传递过来的参数对象*/) {
+                    return JSON.stringify(window.browser.execWebFn.shareInfoOptions);
+                }});
+            }
+            _cb({code: 0, msg: '5设置成功'});
+        }
+    });
+    var options = {
+        title : "QQ浏览器新用户礼包",
+        url : window.location.href,
+        img_url:"http://res.imtt.qq.com/newuserSave/real/shareIcon.png",
+        img_title:"QQ浏览器新用户礼包",
+        description : "QQ浏览器新用户有福啦！壕送7大礼包，天天有惊喜，最高1000Q币",
+        cus_txt : "来自:QQ浏览器"
+    };
+    // 设置 分享 中心
+    browser.app.setShareInfo(options, function(data) {
+        alert(JSON.stringify(data));
+    });
+
+
+</script>
+
+
+
+</body>
+</html>

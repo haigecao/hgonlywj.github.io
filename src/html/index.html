@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="author" content="allanyu">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=0,maximum-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="no-title">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <!-- QQ应用模式 -->
+    <!--<meta name="x5-page-mode" content="app">-->
+    <link rel="shortcut icon" href="#"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="../css/g.css"/>
+
+    <script src="//jsapi.qq.com/get?api=app.*,login.*" type="text/javascript"></script>
+
+    <!--<script src="./../js/app/dataList.js"></script>-->
+    <!-- 引入水滴 -->
+    <script src="./../js/lib/vue.js"></script>
+    <script id="sdi_js" aid="2017022217310101167" type="text/javascript" src="./../js/lib/sdi_js_full_v2.js"></script>
+
+    <!-- 引入点击流 功能-->
+    <!--<script language="javascript" src="https://pingjs.qq.com/tcss.ping.https.js"></script>-->
+    <!--<script language="javascript">-->
+    <!--if(typeof(pgvMain) == 'function')-->
+    <!--pgvMain();-->
+    <!--</script>-->
+</head>
+
+<script>
+
+    function parseQueryString(url) {
+        var json = {};
+        var arr = url.substr(url.indexOf('?') + 1).split('&');
+        arr.forEach(function (item) {
+            var tmp = item.split('=');
+            json[tmp[0]] = tmp[1];
+        });
+
+        if (typeof json.id == undefined || typeof json.id == null) {
+            json.id = 1;
+        }
+
+        return json;
+    }
+
+    // 全局选项
+    window.newUser = {
+        isOldUser: true,            // 是老用户
+        isQQBrowser: false,         // 是否是QQ 浏览器， true 是, false 否
+        iosUserInstallTime: "",     // IOS 安装时间
+        singalLogin: false,         // 默认 用户未登录
+        activityOver: false,        // 默认 活动没有失效
+        ajaxDataList: "",           // ajax 返回的数据
+        activateCard: -1,           // 需要 激活的卡片,【可以点击领取的，第一张卡片】
+        isGetCard: false,           // 是否可以领取卡片
+        hadprize: 1,                // 【默认】1不可以领取，0今天可以领取
+        btnText: "",                 // 按钮文案
+        gitfText: "",               // 领奖文案
+        activeId: parseQueryString(location.search).id, // 活动 第几期
+        isAbleClick: true,          // true可以点击 是否可以点击【点击一次，只有等待状态更新，才能点击第二次】
+        userAccount: "",            // 用户账号的保存
+        isReal: false             // 是否为 正式环境
+    };
+
+    _sdi.stat({ptype: '5',stype: '2'});
+    //水滴传播来源统计
+    /*
+        switch (Global.channelid) {
+             case 'wx':
+                break;
+                default:
+             _sdi.stat({ptype: '5',stype: '2'});
+             break;
+        }
+    */
+</script>
+<body>
+<div class="mod-bg">
+    <div class="mod-banner">
+        <div class="imgbox">
+            <div class="wrapper">
+                <div class="img"><img src="../img/banner01.png" alt=""/></div>
+                <div class="img"><img src="../img/banner02.png" alt=""/></div>
+                <div class="img"><img src="../img/banner03.png" alt=""/></div>
+            </div>
+        </div>
+    </div>
+    <div class="mod-man">
+        <div class="eye"></div>
+    </div>
+    <div class="tit"></div>
+</div>
+<div class="mod-luckbox" id="mod-luckbox-app" style="visibility:hidden;">
+    <div v-bind:class="value.itemClass" v-for="(value, key) in prizelist">
+        <div class="tit">
+            <!-- icon可选 icon-sd icon-book icon-dd icon-gift icon-qm icon-qb -->
+            <h3>{{ value.showDay }}<span v-bind:class="value.iconClass"></span></h3>
+            <p>{{ value.txt }}</p>
+        </div>
+        <div class="btn" @click="click(value.own, value.type, value.url, $event, value.day)">{{ value.btntxt }}</div>
+    </div>
+</div>
+
+
+<!-- 弹窗 -->
+<div class="mod-alert" style="display:none;">
+    <!-- 通用 -->
+    <div class="alert-box title-many-line ani" id="alert9" style="display:none;">
+        <div class="alert-content content-text">
+            <p class="title">请使用手机QQ浏览器<br/>访问本活动</p>
+        </div>
+        <div class="btn-group two">
+            <a class="btn btn-common next-say">下次再说</a>
+            <a class="btn btn-blue fast-install">急速安装</a>
+        </div>
+    </div>
+
+    <!-- 仅限新用户参加 -->
+    <div class="alert-box-hg" style="display:none;">
+        <div class="alert-content content-text">
+            <p class="title" style="text-align: center">活动仅限新用户参加</p>
+        </div>
+        <div class="btn-group two">
+            <a class="btn btn-common next-say-ok">确认</a>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="mod-morebtn" onclick="goQipao()">更多好礼来器泡圈<span class="G-ico G-ico-arr-r"></span></div>
+<div class="mod-rule">
+    <dl>
+        <dt><span>领取攻略</span></dt>
+        <dd><em>1.</em>2016年12月15日至2016年12月18日下载QQ浏览器的新用户，可在下载后14天内领取，否则未领取的礼包将失效。</dd>
+        <dd><em>2.</em>共7个礼包，每天可领一个，每个礼包限领一次，依次领取，领完为止。越往后礼包的价值越高。记得常来哦！</dd>
+        <dd><em>3.</em>礼包领取后可在对应的个人账户中查看，也可在本页面使用。</dd>
+        <dd><em>4.</em>入口提示：菜单栏-个人登陆头像-个人中心-发现精彩-进入本活动页。</dd>
+        <dd><em>5.</em>同一台手机、同一个账号限领一次，作弊将取消发放资格。本活动最终解释权归腾讯所有。</dd>
+
+    </dl>
+    <div class="gun"></div>
+</div>
+</body>
+
+
+<script src="./../js/lib/zepto.js"></script>
+<script src="./../js/lib/zepto.fx.js"></script>
+<script src="./../js/app/tools.js"></script>
+<script src="./../js/app/app.js"></script>
+
+<script type="text/javascript">
+    function BanScroll() {
+        //初始化参数
+        var waitTime = 4000;         // 间歇时间
+        var animateTime = 500;       // 滚动效果时间,理论上应该比间歇时间短
+        var showbox = '.imgbox';         // 滚动对象
+        var wrapper = '.imgbox .wrapper';
+        var item = '.img';
+        var stepWidth;
+        var ani;
+        this.init = function () {
+            stepWidth = $('.mod-banner').width() * -.86;// 滚动步长 这里变形过了 不能直接读取本身的宽度
+            return this;
+        }
+        this.start = function () {
+            ani = setInterval(function () {
+                var tmp = $(showbox).find(item).first();
+                $(wrapper).animate({
+                    translateX: stepWidth + 'px'
+                }, animateTime, 'ease-in-out', function () {
+                    $(wrapper).append(tmp).css('transform', 'translateX(0)'); //重新拼装内容
+                });
+            }, parseInt(waitTime))
+        }
+        this.stop = function () {
+            clearInterval(ani);
+        }
+    }
+    var banner = new BanScroll();
+    banner.init().start();
+
+    $(window).resize(function () {
+        banner.init();
+    });
+
+    //底部动画
+    var scrollTimer, falg = false;
+    function scrollFunction() {
+        // 处理函数
+        var maxH = $('body').height() - $(window).height() - 10;
+        if ($(window).scrollTop() > maxH) {
+            try {
+                console.log('play');
+                $('.mod-rule .gun').addClass('ani');
+                falg = true;
+            } catch (err) {
+            }
+        }
+    };
+
+    $(window).scroll(function () {
+        if (!falg) {                     //只触发一次
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(scrollFunction, 250);  //我们可以适当调整时间间隔
+        }
+    });
+
+
+    // 跳转到器泡圈
+    function goQipao() {
+        _sdi.stat({ptype:'7',stype:'15'});
+        location.href = "https://circle.html5.qq.com/node/circle?circleid=q_21051121022_1427099654543630&referpost=1301377816_1305921480593287979&_from=098&ch=06&";
+    }
+
+
+</script>
+</html>
